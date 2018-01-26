@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15E789F4-859C-4877-A5A3-B40A985BCB28}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GameEventing</RootNamespace>
+    <AssemblyName>GameEventing</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB, Version=4.1.1.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.4.1.1\lib\net40\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="MediatR, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.4.0.1\lib\net45\MediatR.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Point.cs" />
+    <Compile Include="GameEvents\Events\ArmourDroppedEvent.cs" />
+    <Compile Include="GameEvents\JsonConverters\ArmourDroppedEventDataConverter.cs" />
+    <Compile Include="GameEvents\Handlers\ArmourDroppedEventHandler.cs" />
+    <Compile Include="GameEvents\JsonConverters\ArmourPickedUpEventDataConverter.cs" />
+    <Compile Include="GameEvents\JsonConverters\CharacterAddedEventDataConverter.cs" />
+    <Compile Include="GameEvents\Events\MoveCharacterEvent.cs" />
+    <Compile Include="GameEvents\JsonConverters\MoveCharacterEventDataConverter.cs" />
+    <Compile Include="GameEvents\Handlers\MoveCharacterEventHandler.cs" />
+    <Compile Include="GameEvents\JsonConverters\WeaponAddedEventDataConverter.cs" />
+    <Compile Include="GameEvents\Events\WeaponAssignedEvent.cs" />
+    <Compile Include="GameEvents\JsonConverters\WeaponAssignedEventDataConverter.cs" />
+    <Compile Include="GameEvents\Handlers\WeaponAssignedEventHandler.cs" />
+    <Compile Include="GameEvents\Events\WeaponDroppedEvent.cs" />
+    <Compile Include="GameEvents\JsonConverters\WeaponDroppedEventDataConverter.cs" />
+    <Compile Include="GameEvents\Handlers\WeaponDroppedEventHandler.cs" />
+    <Compile Include="GameEvents\Events\ArmourAssignedEvent.cs" />
+    <Compile Include="GameEvents\JsonConverters\ArmourAssignedEventConverter.cs" />
+    <Compile Include="GameEvents\Handlers\ArmourAssignedEventHandler.cs" />
+    <Compile Include="GameEvents\Events\ArmourAddedEvent.cs" />
+    <Compile Include="GameEvents\EventData\ArmourAddedEventData.cs" />
+    <Compile Include="GameEvents\JsonConverters\ArmourAddedEventDataConverter.cs" />
+    <Compile Include="GameEvents\Handlers\ArmourAddedEventHandler.cs" />
+    <Compile Include="GameEvents\EventData\ArmourAssignedEventData.cs" />
+    <Compile Include="GameEvents\EventData\ArmourDroppedEventData.cs" />
+    <Compile Include="GameEvents\EventData\ArmourPickedUpEventData.cs" />
+    <Compile Include="GameEvents\EventData\MoveCharacterEventData.cs" />
+    <Compile Include="GameEvents\EventData\WeaponAddedEventData.cs" />
+    <Compile Include="GameEvents\EventData\WeaponAssignedEventData.cs" />
+    <Compile Include="GameEvents\EventData\WeaponDroppedEventData.cs" />
+    <Compile Include="GameEvents\EventData\WeaponPickedUpEventData.cs" />
+    <Compile Include="GameEvents\JsonConverters\WeaponPickedUpEventDataConverter.cs" />
+    <Compile Include="GameEvents\Events\ArmourPickedUpEvent.cs" />
+    <Compile Include="GameEvents\Events\WeaponAddedEvent.cs" />
+    <Compile Include="GameEvents\Handlers\ArmourPickedUpEventHandler.cs" />
+    <Compile Include="GameEvents\Handlers\WeaponAddedEventHandler.cs" />
+    <Compile Include="GameEvents\IEventData.cs" />
+    <Compile Include="GameEvents\IGameEvent.cs" />
+    <Compile Include="GameEvents\Handlers\CharacterAddedEventHandler.cs" />
+    <Compile Include="GameEvents\Events\CharacterAddedEvent.cs" />
+    <Compile Include="GameEvents\EventData\CharacterAddedEventData.cs" />
+    <Compile Include="GameObjects\Character.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="StateSaver.cs" />
+    <Compile Include="StoredGameEvent.cs" />
+    <Compile Include="GameObjects\IGameObject.cs" />
+    <Compile Include="GameObjects\Items\Armour.cs" />
+    <Compile Include="GameObjects\Items\Item.cs" />
+    <Compile Include="GameObjects\Items\Weapon.cs" />
+    <Compile Include="GameObjects\Items\IItem.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Game1.json" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
